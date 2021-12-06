@@ -1,0 +1,4772 @@
+//this is a line comment
+
+/* this is a 
+multi-line 
+comment */
+
+/+ 
+/+
+	this is a nested multi-line comment
++/
++/
+
+/* everything is unicode normalized and converted to lowercase before the file is read */
+
+/* general format:
+gene [16 character string, typically signifies lobe or organ] : [gene type] { [gene fields] };
+if the string is longer than 16 characters it is truncated.
+lobe names are truncated further, to 8 characters
+*/
+
+/*this format was created before JSON was added to the engine */
+
+chromosome "A" 
+{
+	gene pigment =
+	{
+		index = 0; //(0, 4]
+		color = "cyan"; //CYMK color...
+		level = .5;
+	};
+
+	gene pigment =
+	{
+		index = 1; //(0, 4]
+		color = "yellow"; //CYMK color...
+		level = .5;
+	};
+	
+	gene pigment =
+	{
+		index = 2; //(0, 4]
+		color = "magenta"; //CYMK color...
+		level = .5;
+	};
+	
+	gene pigment =
+	{
+		index = 3; //(0, 4]
+		color = "black"; //CYMK color...
+		level = .5;
+	};
+	
+	gene mesh = 
+	{
+		part = "head";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "body";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "arms";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "legs";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "tail";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "extra0";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+	gene mesh = 
+	{
+		part = "extra1";
+		mesh = 0x0001; //0000 - FFFF
+		weight = .5;
+	};
+
+//each body part may contain up to 36 versions; they are averaged based on these values
+	gene morph = 
+	{
+		part   = "head";
+		morphTarget = 0; //0000 - FFFF
+		weight	  = .5;
+		whenAdult = true;
+		whenChild = true;
+	};
+
+	gene texture = 
+	{
+	// exact meaning to be decided. 
+		input = 0; 
+		inputChannel = 0;
+		output = 0; 
+		outputChannel = 0;
+		
+		threshold = .5;
+		nominal = .1;
+		gain = .2;
+		digital = true;
+		clamp = true;
+	};
+	
+	gene vorton = 
+	{
+	//location of vorton
+		position = {0, 0, .5};
+		axis = {1, 0, 2};
+		
+	//extent of the effect
+		scaling = 1;
+	//how much the texture is spun where the axis pierces the mesh
+		rotation = 1;
+	//dropoff as the distance to the axis increases
+		dropoff_r = 1; //radius
+	//dropoff as the distance to the point increases
+		dropoff_l = 1; //length
+	//get absolute value of vertex before calculating dropoff.
+		mirror = false;
+	//which texture layer to affect
+		channel = 4;
+	};
+
+};
+
+chromosome "E" 
+{
+gene halflife = { "Pyruvate"                 = MAX };
+gene halflife = { "Glucose"                  = MAX };
+gene halflife = { "Glycogen"                 = MAX };
+gene halflife = { "Starch"                   = MAX };
+gene halflife = { "Fatty Acid"               = MAX };
+gene halflife = { "Cholesterol"              = MAX };
+gene halflife = { "Triglyceride"             = MAX };
+gene halflife = { "Adipose Tissue"           = MAX };
+//gene halflife = { "Adipose Tissue"           = 5.0 min };
+gene halflife = { "Fat"                      = MAX };
+gene halflife = { "Muscle Tissue"            = MAX };
+gene halflife = { "Protein"                  = MAX };
+gene halflife = { "Amino Acid"               = MAX };
+gene halflife = { "Protease"                 = MAX };
+
+gene halflife = { "Downatrophin"             = 268.8 ms };
+gene halflife = { "Upatrophin"               = 268.8 ms };
+
+gene halflife = { "Dissolved carbon dioxide" = MAX };
+gene halflife = { "Urea"                     = MAX };
+gene halflife = { "Ammonia"                  = MAX };
+
+//gene halflife = { "Air"                      = 17.1 sec };
+gene halflife = { "Air"                      = MAX };
+gene halflife = { "Oxygen"                   = MAX };
+gene halflife = { "Water"                    = MAX };
+
+//energy
+gene halflife = { "Energy"                   = MAX };
+gene halflife = { "ATP"                      = MAX };
+gene halflife = { "ADP"                      = MAX };
+
+gene halflife = { "Arousal Potential"        = 5.2 sec };
+gene halflife = { "Libido lowerer"           = 296.8 ms };
+gene halflife = { "Opposite Sex Pheromone"   = 1 sec };
+
+//hormones
+gene halflife = { "Oestrogen"                = 31.1 sec };
+gene halflife = { "Progesterone"             = 10.0 sec };
+gene halflife = { "Testosterone"             = 4.1 min };
+
+//toxins
+gene halflife = { "Inhibin"                  = MAX };
+gene halflife = { "Heavy Metals"             = MAX };
+gene halflife = { "Cyanide"                  = 1.9 min };
+gene halflife = { "Belladonna"               = 2.1 min };
+gene halflife = { "Geddonase"                = 1.9 min };
+gene halflife = { "Glycotoxin"               = 1.9 min };
+gene halflife = { "Sleep toxin"              = 1.1 min };
+gene halflife = { "Fever toxin"              = 2.1 min };
+gene halflife = { "Histamine A"              = 50.9 sec };
+gene halflife = { "Histamine B"              = 50.9 sec };
+gene halflife = { "Alcohol"                  = 1.1 min };
+gene halflife = { "ATP Decoupler"            = 56.2 sec };
+gene halflife = { "Carbon monoxide"          = 1.0 min };
+gene halflife = { "Fear toxin"               = 56.2 sec };
+gene halflife = { "Muscle toxin"             = 1.9 min };
+
+//antigens
+gene halflife = { "Antigen 0"                = 1.1 min };
+gene halflife = { "Antigen 1"                = 1.1 min };
+gene halflife = { "Antigen 2"                = 1.1 min };
+gene halflife = { "Antigen 3"                = 1.0 min };
+gene halflife = { "Antigen 4"                = 1.0 min };
+gene halflife = { "Antigen 5"                = 1.0 min };
+gene halflife = { "Antigen 6"                = 46.1 sec };
+gene halflife = { "Antigen 7"                = 56.2 sec };
+
+gene halflife = { "Wounded"                  = 18.1 sec };
+gene halflife = { "Medicine one"             = 31.1 sec };
+gene halflife = { "Anti-oxidant"             = 1.1 min };
+gene halflife = { "prostaglandin"            = 20.9 sec };
+gene halflife = { "EDTA"                     = 20 min };
+gene halflife = { "Sodium thiosulphite"      = 31 sec };
+gene halflife = { "Arnica"                   = 5.0 min };
+gene halflife = { "Vitamin E"                = MAX };
+gene halflife = { "Vitamin C"                = MAX };
+gene halflife = { "Antihistamine"            = 5.0 min };
+
+gene halflife = { "Antibody 0"               = 21 min };
+gene halflife = { "Antibody 1"               = 21 min };
+gene halflife = { "Antibody 2"               = 21 min };
+gene halflife = { "Antibody 3"               = 21 min };
+gene halflife = { "Antibody 4"               = 21 min };
+gene halflife = { "Antibody 5"               = 21 min };
+gene halflife = { "Antibody 6"               = 21 min };
+gene halflife = { "Antibody 7"               = 21 min };
+
+gene halflife = { "Anabolic steroid"         = 11.1 min };
+gene halflife = { "Pistle"                   = 654.9 ms };
+gene halflife = { "Insulin"                  = MAX };
+gene halflife = { "Glycolase"                = MAX };
+gene halflife = { "Dehydrogenase"            = 5.0 min };
+gene halflife = { "Adrenaline"               = 10.5 sec };
+gene halflife = { "Grendel nitrate"          = 50 ms };
+gene halflife = { "Ettin nitrate"            = 50 ms };
+
+gene halflife = { "Activase"                 = MAX };
+gene halflife = { "Life"                     = 15 min };
+
+gene halflife = { "Injury"                   = 10.5 sec };
+gene halflife = { "stress"                   = 2.1 min };
+gene halflife = { "Sleepase"                 = 199.8 ms };
+
+gene halflife = { "Pain backup"              = MAX };
+gene halflife = { "Hunger for protein backup"= MAX };
+gene halflife = { "Hunger for carb backup"   = MAX };
+gene halflife = { "Hunger for fat backup"    = MAX };
+gene halflife = { "Coldness backup"          = MAX };
+gene halflife = { "Hotness backup"           = MAX };
+gene halflife = { "Tiredness backup"         = MAX };
+gene halflife = { "Sleepiness backup"        = MAX };
+gene halflife = { "Loneliness backup"        = MAX };
+gene halflife = { "Crowded backup"           = MAX };
+gene halflife = { "Fear backup"              = MAX };
+gene halflife = { "Boredom backup"           = MAX };
+gene halflife = { "Anger backup"             = MAX };
+gene halflife = { "Sex drive backup"         = 8.6 sec };
+gene halflife = { "Comfort backup"           = MAX };
+
+gene halflife = { "Pain"                     = 8.6 sec };
+gene halflife = { "Hunger for protein"       = MAX };
+gene halflife = { "Hunger for carb"          = MAX };
+gene halflife = { "Hunger for fat"           = MAX };
+gene halflife = { "Coldness"                 = 31.1 sec };
+gene halflife = { "Hotness"                  = 28.1 sec };
+gene halflife = { "Tiredness"                = MAX };
+gene halflife = { "Sleepiness"               = MAX };
+gene halflife = { "Loneliness"               = 28.1 sec };
+gene halflife = { "Crowded"                  = 28.1 sec };
+gene halflife = { "Fear"                     = 34.3 sec };
+gene halflife = { "Boredom"                  = MAX };
+gene halflife = { "Anger"                    = 31.1 sec };
+gene halflife = { "Sex drive"                = 4.7 sec };
+gene halflife = { "Comfort"                  = MAX };
+
+gene halflife = { "Ca smell 0"               = 1.0 min };
+gene halflife = { "CA smell 1"               = 1.0 min };
+gene halflife = { "CA smell 2"               = 1.0 min };
+gene halflife = { "Ca smell 3"               = 1.0 min };
+gene halflife = { "CA smell 4"               = 1.0 min };
+gene halflife = { "CA smell 5"               = 1.0 min };
+gene halflife = { "CA smell 6"               = 1.0 min };
+gene halflife = { "CA smell 7"               = 1.0 min };
+gene halflife = { "CA smell 8"               = 1.0 min };
+gene halflife = { "CA smell 9"               = 1.0 min };
+gene halflife = { "CA smell 10"              = 1.0 min };
+gene halflife = { "CA smell 11"              = 1.0 min };
+gene halflife = { "CA smell 12"              = 1.0 min };
+gene halflife = { "CA smell 13"              = 1.0 min };
+gene halflife = { "CA smell 14"              = 1.0 min };
+gene halflife = { "CA smell 15"              = 1.0 min };
+gene halflife = { "CA smell 16"              = 1.0 min };
+gene halflife = { "CA smell 17"              = 1.0 min };
+gene halflife = { "CA smell 18"              = 1.0 min };
+gene halflife = { "CA smell 19"              = 1.0 min };
+
+gene halflife = { "stress (H4C)"             = 31.1 sec };
+gene halflife = { "stress (H4P)"             = 15.5 sec };
+gene halflife = { "stress (H4F)"             = 15.5 sec };
+gene halflife = { "stress (Anger)"           = 15.5 sec };
+gene halflife = { "stress (Fear)"            = 15.5 sec };
+gene halflife = { "stress (Pain)"            = 15.5 sec };
+gene halflife = { "stress (Sleep)"           = 15.5 sec };
+gene halflife = { "stress (Tired)"           = 15.5 sec };
+gene halflife = { "stress (Crowded)"         = 15.5 sec };
+
+gene halflife = { "Disappointment"           = MAX };
+gene halflife = { "Up Drive"                 = 2.1 sec };
+gene halflife = { "Down Drive"               = 2.1 sec };
+gene halflife = { "Exit Drive"               = 2.1 sec };
+gene halflife = { "Enter Drive"              = 2.1 sec };
+gene halflife = { "Need Drive"               = 2.1 sec };
+gene halflife = { "Wait"                     = 2.1 sec };
+gene halflife = { "Reward"                   = 74.3 ms };
+gene halflife = { "Punishment"               = 74.3 ms };
+gene halflife = { "Brain chemical 10"        = MAX };
+gene halflife = { "Brain chemical 11"        = MAX };
+gene halflife = { "Brain chemical 12"        = MAX };
+gene halflife = { "Brain chemical 13"        = MAX };
+gene halflife = { "Brain chemical 14"        = MAX };
+gene halflife = { "Pre-REM sleep"            = MAX };
+gene halflife = { "REM sleep"                = MAX };
+};
+
+chromosome "F"
+{
+//--------------------------------------
+//  CNS DRIVE LOBE SUPPORT
+//--------------------------------------
+//genes have the organ ID of the organ gene that preceeded them in the chromosome (not the file).
+//if no organ preceeded it it has organ 0
+//organs can appear multiple times in a chromosome or in multilpe chromosomes, values are averaged.
+gene organ =
+{
+	id              = 1;
+	clockRate       = 128;
+	vulnerability	= .016;
+	initLifeForce	= 1.0;
+	biotickStart 	= 128;
+	atpDamageCoeff	= .098;
+};
+	
+gene receptor =  
+{
+	locus= { "Drive", 0 };
+	chemical = "pain";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 1 };
+	chemical = "hunger for protein";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 2 };
+	chemical = "hunger for carb";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 3 };
+	chemical = "hunger for fat";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 4 };
+	chemical = "coldness";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 5 };
+	chemical = "hotness";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 6 };
+	chemical = "tiredness";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 7 };
+	chemical = "sleepiness";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 8 };
+	chemical = "loneliness";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 9 };
+	chemical = "crowded";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 10 };
+	chemical = "fear";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 11 };
+	chemical = "boredom";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 12 };
+	chemical = "anger";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 13 };
+	chemical = "sex drive";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 14 };
+	chemical = "comfort";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 15 };
+	chemical = "up drive";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 16 };
+	chemical = "down drive";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 17 };
+	chemical = "exit drive";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 18 };
+	chemical = "enter drive";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor =  
+{
+	locus= { "Drive", 19 };
+	chemical = "wait";
+	threshold = 0;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .749;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 6";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+	
+//--------------------------------------
+//  DIGESTIVE FUNCTIONS
+//--------------------------------------
+gene organ =
+{
+	id              = 44;
+	clockRate       = 128;
+	vulnerability	= .125;
+	initLifeForce	= .5;
+	biotickStart 	= 13;
+	atpDamageCoeff	= .5;
+};
+
+gene reaction = 
+{
+//up to 4 reactants and 4 products.
+	reactants = { 1 protein };
+	products  = { 4 "amino acid" };
+	rate = 10.1 sec;
+};
+
+gene reaction = 
+{
+	reactants = { 1 starch };
+	products  = { 4 glucose };
+	rate = 12.7 sec;
+};
+
+gene reaction = 
+{
+	reactants = { 1 fat };
+	products  = { 3 triglyceride, 1 cholesterol };
+	rate = 5.8 sec;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 5";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .277;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .277;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .671;
+};
+
+//--------------------------------------
+//  LIVER ANABOLIC
+//--------------------------------------
+gene organ =
+{
+	id              = 41;
+	clockRate       = 128;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 205;
+	atpDamageCoeff  = .5;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "cholesterol" };
+	threshold = .063;
+	nominal   = .5;
+	gain      = .9;
+	invert    = true;
+	digital   = true;
+};
+gene reaction = 
+{
+	reactants = { 1 "amino acid", 4 "pyruvate" };
+	products  = { 1 cholesterol };
+	rate = 5.8 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Glycotoxin";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+
+gene promoter =  
+{
+	locus     = { "chemical", "Anabolic Steroid" };
+	threshold = .008;
+	nominal   = 0;
+	gain      = .341;
+	digital   = true;
+};
+gene reaction = 
+{
+	reactants = { 1 "anabolic steroid", 4 "amino acid"  };
+	products  = { 1 "muscle tissue" };
+	rate = 8 sec;
+};
+
+//why is this commented out?  i don't remmeber
+//promoter genes are like receptors, the value of the gene 
+//is the percentage effectiveness of the following gene.
+//
+//when they are chained the percentages are multiplied together.
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "Glucose" };
+	threshold = .102;
+	nominal   = .749;
+	gain      = .6;
+};
+gene promoter =  
+{
+	locus     = { "chemical", "Glycogen" };
+	threshold = .133;
+	nominal   = .745;
+	gain      = .898;
+	invert    = true;
+};*/
+gene reaction = 
+{
+	reactants = { 6 glucose };
+	products  = { 1 glycogen };
+	rate = 5 sec;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "pyruvate" };
+	threshold = .125;
+	nominal   = .100;
+	gain      = .6;
+};
+gene reaction = 
+{
+	reactants = { 8 pyruvate, 6 ATP };
+	products  = { 1 "fatty acid", 6 ADP  };
+	rate = 30 sec;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "pyruvate" };
+	threshold = .125;
+	nominal   = .100;
+	gain      = .6;
+};
+gene reaction = 
+{
+	reactants = { 2 pyruvate, 2 ATP };
+	products  = { 1 glucose, 2 ADP };
+	rate = 30 sec;
+};
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "fatty acid" };
+	threshold = .102;
+	nominal   = .722;
+	gain      = .302;
+	invert    = true;
+};*/
+gene reaction = 
+{
+	reactants = { 3 "fatty acid" };
+	products = { 1 triglyceride };
+	rate = 20 sec;
+};
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "triglyceride" };
+	threshold = .102;
+	nominal   = .749;
+	gain      = .6;
+};*/
+gene reaction = 
+{
+	reactants = { 8 triglyceride };
+	products  = { 1 "adipose tissue" };
+	rate = 20 sec;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .671;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 7";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 6";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+//--------------------------------------
+//  LIVER CATABOLIC
+//--------------------------------------
+gene organ =
+{
+	id              = 42;
+	clockRate       = 128;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 147;
+	atpDamageCoeff  = .5;
+};
+/*
+gene promoter = 
+{
+	locus     = { "chemical", "cholesterol" };
+	threshold = .063;
+	nominal   = .722;
+	gain      = 1.0;
+};*/
+gene reaction = 
+{
+	reactants = { 1 "cholesterol" };
+	products  = { 1 "amino acid", 4 "pyruvate" };
+	rate = 5.8 sec;
+};
+
+gene receptor = 
+{
+	chemical  = "Geddonase";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .024;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 "muscle tissue", 2 protease };
+	products  = { 4 "amino acid" };
+	rate = 5.8 sec;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "amino acid" };
+	threshold = .051;
+	nominal   = .5;
+	gain      = .8;
+	invert    = true;
+	digital   = true;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "muscle tissue" };
+	products  = { 4 "amino acid" };
+	rate = 2.5 sec;
+};
+
+gene reaction = 
+{
+	reactants = { 4 "amino acid" };
+	products  = { 1 "muscle tissue" };
+	rate = 5 sec;
+};
+
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "glucose" };
+	threshold = .098;
+	nominal   = .851;
+	gain      = 1.0;
+	invert    = true;
+};
+gene promoter =  
+{
+	locus     = { "chemical", "glycogen" };
+	threshold = .133;
+	nominal   = .682;
+	gain      = 1.0;
+};*/
+gene reaction = 
+{
+	reactants = { 1 glycogen };
+	products  = { 6 glucose };
+	rate = 5 sec;
+};
+/*
+gene promoter = 
+{
+	locus     = { "chemical", "fatty acid" };
+	threshold = .098;
+	nominal   = .098;
+	gain      = 1.0;
+	invert    = true;
+};*/
+	
+gene reaction = 
+{
+	reactants = { 1 triglyceride };
+	products  = { 3 "fatty acid" };
+	rate = 2.4 sec;
+};
+	/*
+gene promoter = 
+{
+	locus     = { "chemical", "triglyceride" };
+	threshold = .094;
+	nominal   = .5;
+	gain      = 1.0;
+	invert    = true;
+};	*/
+gene reaction = 
+{
+	reactants = { 1 "adipose tissue" };
+	products  = { 8 triglyceride };
+	rate = 2.4 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .757;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 1";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .224;
+};
+};
+
+chromosome '_' 
+{
+//--------------------------------------
+//  MITOCHONDRIA
+//--------------------------------------
+gene organ =
+{
+	id              = 43;
+	clockRate       = 192;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 41;
+	atpDamageCoeff  = .5;
+};
+
+gene receptor =
+{
+	locus     = { "organ", "clock Rate" };
+	chemical  = "ATP";
+	threshold = .749;
+	nominal   = 1.0;
+	gain      = .502;
+	invert    = true;
+};
+
+gene promoter =  
+{
+	locus     = { "chemical", "ATP" };
+	threshold = .749;
+	nominal   = 1.0;
+	gain      = .502;
+	invert    = true;
+};
+
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "Pyruvate" };
+	threshold = .125;
+	nominal   = .5;
+	gain      = .8;
+	invert    = true;
+};*/
+gene reaction = 
+{
+	reactants = { 1 "fatty acid", 6 "ADP"  };
+	products = { 8 "pyruvate", 6 "ATP" };
+	rate = 1.25 sec;
+};
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "Glucose" };
+	threshold = .125;
+	nominal   = .812;
+	gain      = .5;
+};*/
+gene reaction = 
+{
+	reactants = { 1 "glucose",  2 "ADP"  };
+	products = { 2 "pyruvate",  2 "ATP" };
+	rate = 1.25 sec;
+};
+
+/*
+gene promoter =  
+{
+	locus     = { "chemical", "Adrenaline" };
+	threshold = .063;
+	nominal   = .969;
+	gain      = .188;
+};
+gene promoter =  
+{
+	locus     = { "chemical", "Cyanide" };
+	threshold = 0;
+	nominal   = .788;
+	gain      = .788;
+	invert    = true;
+};
+gene promoter =  
+{
+	locus     = { "chemical", "Belladonna" };
+	threshold = .063;
+	nominal   = .965;
+	gain      = .749;
+	invert    = true;
+};
+gene promoter =  
+{
+	locus     = { "chemical", "Energy" };
+	threshold = .502;
+	nominal   = .976;
+	gain      = .967;
+	invert    = true;
+};
+*/
+gene reaction = 
+{
+	reactants = { 1 "pyruvate" , 3 "oxygen" };
+	products = { 6 "energy"  , 3 "dissolved carbon dioxide" };
+	rate = 268.8 ms;
+};
+
+
+gene reaction = 
+{
+	reactants = { 1 "energy", 6 "ADP" };
+	products = { 6 "ATP"  };
+	rate = 110.3 ms;
+};
+
+//altered
+gene promoter =  
+{
+	locus     = { "chemical", "Amino Acid" };
+	threshold = .5;
+	nominal   = 0;
+	gain      = .2;
+	digital    = true;
+};
+
+gene reaction = 
+{
+	reactants = { 2 "amino acid" };
+	products = { 1 "glucose", 1 "Ammonia" };
+	rate = 5 sec;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .671;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 6";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .227;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 5";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+};
+
+chromosome 'L'
+{
+//--------------------------------------
+//  REGULATION FUNCTION
+//--------------------------------------
+gene organ =
+{
+	id              = 25;
+	clockRate	= 192;
+	vulnerability	= .78;
+	initLifeForce	= .5;
+	biotickStart 	= 246;
+	atpDamageCoeff	= .5;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 glycogen, 1 adrenaline };
+	products = { 6 glucose };
+	rate = 2.1 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .686;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .239;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .239;
+};
+
+gene emitter = 
+{
+	locus = { creature, "always on" };
+	chemical = "hunger for protein";
+	sampleRate = 30;
+	gain = .008;
+	threshold = 0.0;
+};
+	
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = boredom;
+	sampleRate = 16;
+	gain = .004;
+	threshold = .5;
+	digital = true;
+};
+	
+gene emitter = 
+{
+	locus = { creature, "always on" };
+	chemical = "hunger for carb";
+	sampleRate = 35;
+	gain = .008;
+	threshold = 0.0;
+};
+	
+gene emitter = 
+{
+	locus = { creature, "always on" };
+	chemical = "hunger for fat";
+	sampleRate = 30;
+	gain = .008;
+	threshold = 0.0;
+};
+	
+gene emitter = 
+{
+	locus = { creature, "always on" };
+	chemical = "sleepiness";
+	sampleRate = 35;
+	gain = .016;
+	threshold = 0.0;
+};
+	
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus     = { "organ", "clock rate" };
+	threshold = 0;
+	nominal   = .502;
+	gain      = 1.0;
+	invert    = true;
+};
+	//THESE NOT SET UP
+gene receptor = 
+{
+	chemical  = "Pain";
+	locus     = { "involuntary", 0 }; //flinch
+	threshold = .188;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	chemical  = "Histamine A";
+	locus     = { "involuntary", 2 }; //sneeze
+	threshold = .59;
+	nominal   = 0;
+	gain      = 1.0;
+};
+	
+gene receptor = 
+{
+	chemical  = "Histamine B";
+	locus     = { "involuntary", 3 }; //cough
+	threshold = .63;
+	nominal   = 0;
+	gain      = 1.0;
+};
+	
+gene receptor = 
+{
+	chemical  = "Coldness";
+	locus     = { "involuntary", 4 }; //shiver
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	chemical  = "Tiredness";
+	locus     = { "involuntary", 5 }; //sleep
+	threshold = .816;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	chemical  = "Glucose";
+	locus     = { "involuntary", 6 }; //falter
+	threshold = .051;
+	nominal   = .502;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 coldness, 1 hotness};
+	rate = 50 ms;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 crowded, 1 loneliness };
+	rate = 973.0 ms;
+};
+	
+gene concentration = { "muscle tissue"      = 0.125 };
+gene concentration = { "adipose tissue"     = 0.275 };
+gene concentration = { "glucose"            = 0.188 };
+gene concentration = { "ATP"                = 1.000 };
+gene concentration = { "energy"             = 1.000 };
+gene concentration = { "triglyceride"       = 0.063 };
+gene concentration = { "Hunger for fat"     = 0.129 };
+gene concentration = { "hunger for protein" = 0.129 };
+gene concentration = { "antibody 1"         = 0.220 };
+gene concentration = { "antibody 2"         = 0.192 };
+gene concentration = { "antibody 3"         = 0.204 };
+gene concentration = { "antibody 4"         = 0.196 };
+gene concentration = { "antibody 5"         = 0.224 };
+gene concentration = { "antibody 6"         = 0.114 };
+gene concentration = { "antibody 7"         = 0.192 };
+gene concentration = { "fatty acid"         = 0.063 };
+gene concentration = { "pyruvate"           = 0.251 };
+gene concentration = { "oxygen"             = 0.749 };
+gene concentration = { "air"                = 0.251 };
+gene concentration = { "glycogen"           = 0.133 };
+gene concentration = { "water"              = 1.000 };	
+gene concentration = { "antibody 0"         = 0.376 };
+gene concentration = { "hunger for carb"    = 0.051 };
+gene concentration = { "boredom"            = 0.353 };
+	
+//--------------------------------------
+//  LUNG
+//--------------------------------------
+gene organ =
+{
+	id              = 26;
+	clockRate       = 192;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 168;
+	atpDamageCoeff  = .5;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "oxygen" };
+	threshold   = .5;  
+	nominal     = .5;
+	gain        = .439;
+	invert      = true;
+};
+	
+gene reaction = 
+{
+	reactants = { 3 "dissolved carbon dioxide", 1 "air" };
+//	products = { 1 "water" };
+	rate = 2 sec;
+};
+	
+gene receptor = 
+{
+	chemical    = air;
+	locus       = { "involuntary", 7 }; // drown
+	threshold   = .306;
+	nominal     = 1.0;
+	gain        = 1.0;
+	invert      = true;
+	digital     = true;
+};
+	
+gene receptor = 
+{
+	locus       = { "organ", "clock rate" }; 
+	chemical    = hotness;
+	threshold   = .314;
+	nominal     = .502;
+	gain        = .498;
+};
+	
+gene emitter = 
+{
+	locus     = { "sensory loci", "Air Quality" };
+	chemical  = "Air";
+	sampleRate = 30;
+	gain       = .22;
+	threshold  = 0;
+}; 
+	
+gene receptor =  
+{
+	locus= { "organ", "clock rate" };
+	chemical = "oxygen";
+	threshold = .51;
+	nominal   = .51;
+	gain      = .439;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "water", 4 hotness };
+	rate = 1.2 sec;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "oxygen" };
+	threshold = .6;
+	nominal   = .875;
+	gain      = .071;
+	invert    = true;
+	digital   = true;
+};
+	
+gene reaction = 
+{
+//	reactants = { 1 "water", 1 "air" };
+	reactants = { 1 "air" };
+	products = { 3 oxygen };
+	rate = 5.2 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .608;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 5";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .239;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .239;
+};
+
+//--------------------------------------
+//  FLOATING LOCI
+//--------------------------------------
+
+gene organ =
+{
+	id              = 27;
+	clockRate       = 255;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 116;
+	atpDamageCoeff  = .5;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "energy" };
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};        	
+gene emitter = 
+{
+	locus       = { creature, "always on" };
+	chemical    = adrenaline;
+	sampleRate  = 17;
+	gain        = .31;
+	threshold   = 0;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "amino acid" };
+	threshold = .063;
+	nominal   = .5;
+	gain      = 1.0;
+	digital   = true;
+	invert    = true;
+};
+gene emitter = 
+{
+	locus       = { creature, "always on" };
+	chemical    = protease;
+	sampleRate  = 9;
+	gain        = .08;
+	threshold   = .502;
+	digital     = true;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "urea" };
+	threshold = .753;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};        
+gene emitter = 
+{
+	locus       = { "creature", "always on" };
+	chemical    = "pistle";
+	sampleRate  = 1;
+	gain        = 1.0;
+	threshold   = .502;
+	digital     = true;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "adipose tissue" };
+	threshold = .031;
+	nominal   = .5;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};     	
+gene emitter = 
+{
+	locus       = { creature, "always on" };
+	chemical    = protease;
+	sampleRate  = 5;
+	gain        = .31;
+	threshold   = .502;
+	digital     = true;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "muscle tissue" };
+	threshold = .102;
+	nominal   = 0;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};        
+gene emitter = 
+{
+	locus       = { creature, "always on" };
+	chemical    = "hunger for protein";
+	sampleRate  = 12;
+	gain        = .08;
+	threshold   = .502;
+	digital     = true;
+};
+	
+gene emitter = 
+{
+	locus      = { "sensory loci", crowdedness };
+	chemical   = loneliness;
+	sampleRate = 11;
+	gain       = .04;
+	threshold  = .89;
+	digital    = true;
+	invert     = true;
+};
+	
+gene emitter = 
+{
+	locus      = { "sensory loci", crowdedness };
+	chemical   = crowded;
+	sampleRate = 7;
+	gain       = .04;
+	threshold  = .102;
+};
+/*
+gene neuroemitter =
+{
+	locus      = { 10, 10 }; //decision, neuron 10
+	chemical   = sleepase;
+	sampleRate = 3;
+	gain       = .267;
+	threshold  = 0;
+	digital    = true;
+};
+	*/
+
+gene emitter = 
+{
+	locus      = { "creature", "asleep" };
+	chemical   = sleepase;
+	sampleRate = 2;
+	gain       = .302;
+	threshold  = 0;
+	digital    = true;
+};
+	
+gene emitter = 
+{
+	locus      = { "sensory loci", "slope sine (pos)" };
+	chemical   = upatrophin;
+	sampleRate = 2;
+	gain       = 1.0;
+	threshold  = .184;
+	digital    = true;
+};
+	
+gene emitter = 
+{
+	locus      = { "sensory loci", "slope sine (neg)" };
+	chemical   = downatrophin;
+	sampleRate = 2;
+	gain       = 1.0;
+	threshold  = .184;
+	digital    = true;
+};
+	/*
+gene neuroreceptor
+{
+	locus     = { 3, 0, 1 };
+	chemical  = tiredness;
+	threshold = .5;
+	nominal   = 0;
+	gain      = .333;
+};*/
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .624;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 6";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 5";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+//--------------------------------------
+//  KIDNEY/BLADDER
+//--------------------------------------
+
+gene organ =
+{
+	id              = 28;
+	clockRate       = 255;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 81;
+	atpDamageCoeff  = .5;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "pistle" };
+	threshold = .314;
+	nominal   = 0.0;
+	gain      = .973;
+	digital   = true;
+};
+gene reaction = 
+{
+	reactants = { 1 urea, 1 pistle};
+	rate = 5.8 sec;
+};
+	
+gene receptor =  
+{
+	locus= { "organ", "clock rate" };
+	chemical = "ammonia";
+	threshold = .086;
+	nominal   = .502;
+	gain      = .259;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "water", 1 pistle};
+	products = { 3 coldness, 1 pistle};
+	rate = 5.8 sec;
+};
+	
+gene reaction = 
+{
+	reactants = { 2 ammonia, 1 "dissolved carbon dioxide"};
+	products = { 1 urea, 1 "water"};
+	rate = 1.2 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .545;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 0";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .239;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 7";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .22;
+};
+
+//--------------------------------------
+//  SKIN COOLING FUNCTION
+//--------------------------------------
+gene organ =
+{
+	id              = 29;
+	clockRate       = 255;
+	vulnerability   = .78;
+	initLifeForce   = .5;
+	biotickStart    = 255;
+	atpDamageCoeff  = .5;
+};
+
+gene reaction = 
+{
+	reactants = { 2 "water", 4 hotness };
+	rate = 5.8 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Antigen 7";
+	locus     = { "organ", "clock rate" };
+	threshold = 0;
+	nominal   = .502;
+	gain      = 1.0;
+	invert    = true;
+};
+	
+gene receptor = 
+{
+	chemical  = "Hotness";
+	locus     = { "organ", "clock rate" };
+	threshold = .63;
+	nominal   = .63;
+	gain      = .753;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .486;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .235;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 1";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .227;
+};
+
+//--------------------------------------
+//  TIME LINE
+//--------------------------------------
+gene organ =
+{
+	id              = 0;
+	clockRate       = 128;
+	vulnerability   = 0;
+	initLifeForce   = .5;
+	biotickStart    = 99;
+	atpDamageCoeff  = 0;
+};
+
+	// BECOME AN INFANT
+gene receptor =
+{
+	locus    = { "life stage", "infant" };
+	chemical = "life";
+	threshold= 1.0;
+	nominal  = .467;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME A CHILD
+gene receptor =
+{
+	locus    = { "life stage", "child"};
+	chemical = "life";
+	threshold= .898;
+	nominal  = .467;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME ADOLESCENT
+gene receptor =
+{
+	locus    = { "life stage", "adolescent"};
+	chemical = "life";
+	threshold= .761;
+	nominal  = .455;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME A YOUTH	
+gene receptor =
+{
+	locus    = { "life stage", "youth"};
+	chemical = "life";
+	threshold= .647;
+	nominal  = .502;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME ADULT	
+gene receptor =
+{
+	locus    = { "life stage", "adult"};
+	chemical = "life";
+	threshold= .533;
+	nominal  = .502;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME OLD	
+gene receptor =
+{
+	locus    = { "life stage", "old"};
+	chemical = "life";
+	threshold= .075;
+	nominal  = .502;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+// BECOME SENILE	
+gene receptor =
+{
+	locus    = { "life stage", "ancient"};
+	chemical = "life";
+	threshold= .039;
+	nominal  = .502;
+	gain     = 1.0;
+	invert   = true;
+	digital  = true;
+};
+	
+gene receptor = 
+{
+	locus     = { "creature", "height" };
+	chemical  = "life";
+	threshold = 0;
+	nominal   = 1.0;
+	gain      = 1.0;
+	invert    = true;
+};
+	
+
+gene receptor = 
+{
+	locus     = { "creature", "die if zero" };
+	chemical  = "life";
+	threshold = .02;
+	nominal   = .502;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	locus     = { "creature", "die if non-zero" };
+	chemical  = "ATP";
+	threshold = .075;
+	nominal   = 1.0;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	locus     = { "creature", "die if non-zero" };
+	chemical  = "Energy";
+	threshold = .055;
+	nominal   = 1.0;
+	gain      = 1.0;
+	invert    = true;
+	digital   = true;
+};
+	
+gene receptor = 
+{
+	locus     = { "creature", "die if non-zero" };
+	chemical  = "Wounded";
+	threshold = .925;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};
+	
+gene concentration = { "life" = 1.0 };
+	
+//--------------------------------------
+//  FIGHT OR FLIGHT
+//--------------------------------------
+gene organ =
+{
+	id             = 24;
+	clockRate      = 128;
+	vulnerability  = .078;
+	initLifeForce  = .5;
+	biotickStart   = 128;
+	atpDamageCoeff = .5;
+};
+	
+gene promoter = 
+{
+	locus     = { "life stage", "adolescent" };
+};
+gene reaction = 
+{
+	reactants = { 1 fear,  1 adrenaline };
+	products = { 2 fear, 1 adrenaline };
+	rate = 2.9 sec;
+};
+	
+gene promoter = 
+{
+	locus     = { "life stage", "adolescent" };
+};
+gene reaction = 
+{
+	reactants = { 1 anger, 1 adrenaline };
+	products = { 2 anger, 1 adrenaline };
+	rate = 2.9 sec;
+};
+
+gene promoter = 
+{
+	locus     = { "chemical", "CA smell 12" };
+	threshold = .839;
+	nominal   = .82;
+	gain      = .22;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 fear };
+	products = { 1 anger };
+	rate = 4.7 sec;
+};
+	
+gene promoter = 
+{
+	locus     = { "chemical", "CA smell 13" };
+	threshold = .839;
+	nominal   = .82;
+	gain      = .22;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 anger };
+	products = { 1 fear };
+	rate = 4.7 sec;
+};
+	
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .231;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .227;
+};
+
+//--------------------------------------
+//  CONSTITUTIVE DRIVE MAINTENANCE
+//--------------------------------------
+gene organ =
+{
+	id              = 16;
+	clockRate	= 128;
+	vulnerability 	= .078;
+	initLifeForce   = .5;
+	biotickStart	= 62;
+	atpDamageCoeff	= .5;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 "pain backup" };
+	products = { 1 pain  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for protein backup" };
+	products = { 1 "hunger for protein"  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for carb backup" };
+	products = { 1 "hunger for carb"  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for fat backup" };
+	products = { 1 "hunger for fat"  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "coldness backup" };
+	products = { 1 coldness  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "hotness backup" };
+	products = { 1 hotness  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "tiredness backup" };
+	products = { 1 tiredness  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "sleepiness backup" };
+	products = { 1 tiredness,  1 "sleepiness backup" };
+	rate = 25.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "sleepiness backup", 1 sleepase };
+	products = { 1 sleepiness, 1 sleepase };
+	rate = 99.9 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "loneliness backup" };
+	products = { 1 loneliness  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "crowded backup" };
+	products = { 1 crowded  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "boredom backup" };
+	products = { 1 boredom  };
+	rate = 15.5 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "sex drive backup" };
+	products = { 1 "sex drive"  };
+	rate = 15.5 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Belladonna";
+	locus     = { "organ", "Clock Rate" };
+	threshold = .114;
+	nominal   = .471;
+	gain      = 1.0;
+	invert    = true;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .227;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 1";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .184;
+};
+
+//--------------------------------------
+//  PAIN OVERWHELMSION
+//--------------------------------------
+gene organ =
+{
+	id              = 36;
+	clockRate	= 128;
+	vulnerability 	= 0.082;
+	initLifeForce   = .5;
+	biotickStart	= 239;
+	atpDamageCoeff	= .5;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 "hunger for protein" };
+	products = { 1 "hunger for protein backup" };
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for carb" };
+	products = { 1 "hunger for carb backup" };
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for fat" };
+	products = { 1 "hunger for fat backup" };
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 coldness };
+	products = { 1 "coldness backup" };
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 hotness };
+	products = { 1 "hotness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 tiredness };
+	products = { 1 "tiredness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 sleepiness };
+	products = { 1 "sleepiness backup"};
+	rate = 537.4 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 loneliness };
+	products = { 1 "loneliness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 crowded };
+	products = { 1 "crowded backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 boredom };
+	products = { 1 "boredom backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "sex drive" };
+	products = { 1 "sex drive backup"};
+	rate = 296.8 ms;
+};
+
+gene receptor =  
+{
+	locus= { "organ", "clock Rate" };
+	chemical = "pain";
+	threshold = .118;
+	nominal   = 0;
+	gain      = 1.0;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .212;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 1";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .208;
+};
+
+
+//--------------------------------------
+//  FEAR OVERWHELMSION
+//--------------------------------------
+gene organ =
+{
+	id              = 30;
+	clockRate       = 128;
+	vulnerability 	= 0;
+	initLifeForce   = .5;
+	biotickStart	= 94;
+	atpDamageCoeff	= .5;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for protein" };
+	products = { 1 "hunger for protein backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for carb" };
+	products = { 1 "hunger for carb backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "hunger for fat" };
+	products = { 1 "hunger for fat backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 coldness };
+	products = { 1 "coldness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 sleepiness };
+	products = { 1 "sleepiness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 hotness };
+	products = { 1 "hotness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 tiredness };
+	products = { 1 "tiredness backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 boredom };
+	products = { 1 "boredom backup"};
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "sex drive" };
+	products = { 1 "sex drive backup"};
+	rate = 296.8 ms;
+};
+
+gene receptor =  
+{
+	locus= { "organ", "clock Rate" };
+	chemical = "fear";
+	threshold = .176;
+	nominal   = 0;
+	gain      = 1.0;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .216;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .18;
+};
+
+
+//--------------------------------------
+//  STRESS SYSTEM
+//--------------------------------------        
+gene organ =
+{
+	id              = 37;
+	clockRate	= 51;
+	vulnerability 	= .078;
+	initLifeForce   = .5;
+	biotickStart	= 74;
+	atpDamageCoeff	= .5;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (crowded)" };
+	threshold = .5;
+	digital   = true;
+};    
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (sleep)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (tired)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (pain)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (fear)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (anger)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (H4F)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (H4P)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "stress (H4C)" };
+	threshold = .5;
+	digital   = true;
+};
+gene emitter =
+{
+	locus = { "creature", "always on" };
+	chemical = "stress";
+	sampleRate = 24;
+	gain = .02;
+	threshold = .5;
+	digital = true;
+};
+
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "anger" };
+	threshold = .839;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (anger)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "pain" };
+	threshold = .750;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (Pain)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "fear" };
+	threshold = .8;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (fear)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "crowded" };
+	threshold = .9;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (crowded)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "sleepiness" };
+	threshold = .839;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (Sleep)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "Hunger For Fat" };
+	threshold = .839;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (H4F)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "Hunger For Protein" };
+	threshold = .839;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (H4P)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "Hunger For Carb" };
+	threshold = .839;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (H4C)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+	
+gene promoter = 
+{
+	locus = { "life stage", "youth" };
+};        
+gene promoter = 
+{
+	locus     = { "chemical", "sleepiness" };
+	threshold = .804;
+	digital   = true;
+};
+gene emitter = 
+{
+	locus = { "creature", "always on" };
+	chemical = "stress (Tired)";
+	sampleRate = 14;
+	gain = .024;
+	threshold = .5;
+	digital = true;
+};
+
+	
+//--------------------------------------
+//  IMMUNE SYSTEM
+//--------------------------------------
+gene organ =
+{
+	id              = 38;
+	clockRate       = 128;
+	vulnerability 	= .078;
+	initLifeForce   = 1.0;
+	biotickStart	= 60;
+	atpDamageCoeff	= .5;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "histamine A", 1 "antihistamine"};
+	rate = 486.7 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "histamine B", 1 "antihistamine" };
+	rate = 486.7 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "stress", 1 "prostaglandin" };
+	products = { 1 "stress", 1 "fatty acid" };
+	rate = 798.3 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "anti-oxidant", 1 "carbon monoxide" };
+	rate = 296.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "carbon monoxide", 1 oxygen  };
+	rate = 973.0 ms;
+};
+gene reaction = 
+{
+	reactants = { 4 "fear toxin" };
+	products = { 1 fear };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "fever toxin", 1 "water" };
+	products = { 8 hotness };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "muscle toxin", 1 "water" };
+	products = { 1 lactate };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 4 "sleep toxin"};
+	products = { 3 "sleep toxin", 2 sleepiness };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "ATP decoupler", 1 "medicine one" };
+	rate = 99.9 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 "ATP decoupler", 1 ATP};
+	products = { 1 "ATP decoupler", 1 ADP };
+	rate = 148.5 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 cyanide, 1 energy};
+	products = { 1 cyanide};
+	rate = 121.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 cyanide, 1 "sodium thiosulphite" };
+	rate = 199.8 ms;
+};
+gene reaction = 
+{
+	reactants = { 1 geddonase, 1 "adipose tissue" };
+	products = { 5 glucose };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 glycotoxin, 1 glycogen };
+	products = { 4 glucose, 4 coldness };
+	rate = 1.2 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 glycotoxin, 1 arnica };
+	rate = 1.1 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 alcohol, 1 dehydrogenase };
+	products  = { 1 glucose, 1 pain };
+	rate = 1.1 sec;
+};
+gene reaction = 
+{
+	reactants = { 1 "heavy metals", 1 EDTA};
+	rate = 1.2 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};
+	
+gene reaction = 
+{
+	reactants = { 1 "antigen 0" };
+	products = { 12 "antibody 0", 1 "histamine B" };
+	rate = 2.6 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};
+	
+gene reaction = 
+{
+	reactants = {1  "antigen 1" };
+	products = { 12 "antibody 1", 1 "histamine A" };
+	rate = 2.9 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};
+	
+gene reaction = 
+{
+	reactants = { 16 "antigen 2" };
+	products = { 12 "antibody 2", 2 coldness };
+	rate = 3.2 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};
+	
+gene reaction = 
+{
+	reactants = { 2 "antigen 4" };
+	products = { 3 "antibody 4", 1 hotness };
+	rate = 3.2 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};        
+gene reaction = 
+{
+	reactants = { 1 "antigen 3"};
+	products = { 1 "antibody 3", 2 coldness};
+	rate = 3.2 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};        
+gene reaction = 
+{
+	reactants = { 1 "antigen 5"};
+	products = { 3 "antibody 5", 1 wounded};
+	rate = 5.8 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};        
+gene reaction = 
+{
+	reactants = { 1 "antigen 6"};
+	products = { 3 "antibody 6", 1 hotness};
+	rate = 5.8 sec;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "vitamin C"};
+	threshold = 0;
+	nominal   = .839;
+	gain      = .255;
+};        
+gene reaction = 
+{
+	reactants = { 1 "antigen 7"};
+	products = { 3 "antibody 7", 1 pain };
+	rate = 5.2 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Heavy Metals";
+	locus     = { "organ", "Injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = .078;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 5";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 4";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+
+	
+//--------------------------------------
+//  BONES
+//--------------------------------------
+gene organ =
+{
+	clockRate	= 255;
+	vulnerability 	= 0;
+	initLifeForce = 255;
+	biotickStart	= 237;
+	atpDamageCoeff	= .5;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "injury"};
+	threshold = .106;
+	nominal   = .878;
+	gain      = .122;
+	invert    = true;
+	digital   = true;  
+};
+gene reaction = 
+{
+	reactants = { 2 "prostaglandin" };
+	products = { 1 "amino acid",  1 "fatty acid" };
+	rate = 881.3 ms;
+};
+	
+gene promoter = 
+{
+	locus = { "chemical", "injury"};
+	threshold = .063;
+	nominal   = 0.0;
+	gain      = .502;
+};
+gene reaction = 
+{
+	reactants = { 1 "amino acid", 1 "fatty acid" };
+	products = { 2 "prostaglandin" };
+	rate = 5 sec;
+};
+	
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = .078;
+	gain      = .561;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 7";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .216;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 6";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+	
+gene receptor = 
+{
+	chemical  = "Vitamin C";
+	locus     = { "organ", "Clock Rate" };
+	threshold = .122;
+	nominal   = .455;
+	gain      = .224;
+};
+};
+
+
+chromosome 'X' 
+{
+//--------------------------------------
+//  UTERUS
+//--------------------------------------
+
+gene promoter = 
+{
+	locus = { "gender", "female"};
+};
+gene organ =
+{
+	/* numbers are from [0-255], or [0.0 to 1.0], if the latter it is multiplied by 255 */
+	id              = 34;
+	clockRate       = 128;
+	vulnerability 	= 0;
+	initLifeForce   = .5;
+	biotickStart	= 50;
+	atpDamageCoeff	= .5;
+};
+	
+gene emitter = 
+{
+	locus      = { "reproductive", "i am pregnant" };
+	chemical   = "comfort";
+	sampleRate = 10;
+	gain       = 1.0;
+	threshold  = 0;
+	digital    = true;
+};
+	
+gene receptor = 
+{
+	locus     = { "organ", "injury" };
+	chemical  = "heavy metals";
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+	
+/*gene promoter = 
+{
+	locus = { "gender", "female"};
+};*/
+gene receptor = 
+{
+	locus     = { "involuntary", 1 };
+	chemical  = "progesterone";
+	threshold = .8;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = { "gender", "female"};
+};
+gene emitter = 
+{
+	locus      = { "reproductive",  "i am pregnant" };
+	chemical   = "progesterone";
+	sampleRate = 1;
+	gain       = .012;
+	threshold  = .498;
+	digital    = true;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .576;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 1";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 0";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .2;
+};
+	
+//--------------------------------------
+//  GONAD
+//--------------------------------------
+gene organ =
+{
+	id              = 35;
+	clockRate       = 128;
+	vulnerability 	= 0.078;
+	initLifeForce   = .5;
+	biotickStart	= 119;
+	atpDamageCoeff	= .5;
+};
+
+gene promoter = 
+{
+	locus = { "life stage", "youth"};
+};	
+gene reaction = 
+{
+	reactants = { 1 "arousal potential", 1 "opposite sex pheromone" };
+	products  = { 1 "sex drive"  };
+	rate = 181.0 ms;
+};
+
+gene receptor = 
+{
+	locus     = { "organ", "injury" };
+	chemical  = "heavy metals";
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+/*
+gene promoter = 
+{
+	locus = { "gender", "male" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "testosterone" }
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;	
+};*/
+
+gene promoter = 
+{
+	locus = { "gender", "female" };
+};
+gene receptor =
+{
+	locus     = { "reproductive", "become fertile" };
+	chemical  = "oestrogen";
+	threshold = 0;
+	nominal   = .2;
+	gain      = 1.0;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = { "gender", "male" };
+};
+gene receptor =
+{
+	locus     = { "reproductive", "become fertile" };
+	chemical  = "testosterone";
+	threshold = 0;
+	nominal   = .2;
+	gain      = 1.0;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = { "gender", "female" };
+};
+gene receptor =
+{
+	locus     = { "reproductive", "become receptive" };
+	chemical  = "sex drive";
+	threshold = .188;
+	nominal   = 0.063;
+	gain      = 1.0;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = { "gender", "male" };
+};
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "testosterone";
+	sampleRate= 4;
+	gain      = 0.02;
+	threshold = .5;
+	invert    = true;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = { "gender", "female" };
+};
+gene emitter =
+{
+//  locus     = { "reproductive", "i am fertile" };
+	locus     = { "creature", "always on" };
+	chemical  = "oestrogen";
+	sampleRate= 2;
+	gain      = 0.012;
+	threshold = .5;
+//	invert    = true;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+/*
+gene promoter = 
+{
+	locus = { "gender", "female" };
+};*/
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "arousal potential";
+	sampleRate= 3;
+	gain      = 0.06;
+	threshold = .5;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene emitter =
+{
+	//locus     = { it is opposite sex };
+	locus     = { "creature", "always on" };
+	chemical  = "opposite sex pheromone";
+	sampleRate= 3;
+	gain      = 0.08;
+	threshold = 0;
+	//invert    = true;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "libido lowerer";
+	sampleRate= 3;
+	gain      = 0.051;
+	threshold = .502;
+	digital   = true;
+	invert    = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene reaction = 
+{
+	reactants = { 1 "libido lowerer",  1 "sex drive" };
+	products = { 1 "libido lowerer" };
+	rate = 50 ms;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "arousal potential", 1 "libido lowerer" };
+	rate = 486.7 ms;
+};
+/*
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = {"gender", "male"};
+};
+gene promoter = 
+{
+	locus		= { "chemical", "arousal potential" };
+	threshold 	= .012;
+	nominal		= .0;
+	gain   		= .31;
+	invert 		= true;
+	digital		= true;
+};
+gene reaction = 
+{
+	reactants = { 1 "sex drive" };
+	rate = 486.7 ms;
+};*/
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene reaction = 
+{
+	reactants = { 1 "libido lowerer", 1 "arousal potential" };
+	products = { 1 "libido lowerer" };
+	rate = 296.8 ms;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus = {"gender", "female"};
+};
+gene reaction = 
+{
+	reactants = { 1 oestrogen, 1 progesterone  };
+	products = { 1 progesterone };
+	rate = 50 ms;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation chance" };
+	chemical  = "stress";
+	threshold = .247;
+	nominal   = 0;
+	gain      = .149;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation degree" };
+	chemical  = "stress";
+	threshold = .251;
+	nominal   = 0;
+	gain      = .212;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation chance" };
+	chemical  = "heavy metals";
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation degree" };
+	chemical  = "heavy metals";
+	threshold = .08;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor = 
+{
+	locus     = { "organ", "injury" };
+	chemical  = "heavy metals";
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .584;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .231;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .216;
+};
+
+
+};
+
+chromosome 'Y' 
+{
+//--------------------------------------
+//  GONAD
+//--------------------------------------
+gene organ =
+{
+	id              = 35;
+	clockRate       = 128;
+	vulnerability 	= 0.078;
+	initLifeForce   = .5;
+	biotickStart	= 119;
+	atpDamageCoeff	= .5;
+};
+
+gene promoter = 
+{
+	locus = { "life stage", "youth"};
+};	
+gene reaction = 
+{
+	reactants = { 1 "arousal potential", 1 "opposite sex pheromone" };
+	products  = { 1 "sex drive"  };
+	rate = 181.0 ms;
+};
+
+gene receptor = 
+{
+	locus     = { "organ", "injury" };
+	chemical  = "heavy metals";
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+/*
+gene promoter = 
+{
+	locus = { "gender", "male" };
+};
+gene promoter = 
+{
+	locus     = { "chemical", "testosterone" }
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+	digital   = true;	
+};*/
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene receptor =
+{
+	locus     = { "reproductive", "become fertile" };
+	chemical  = "testosterone";
+	threshold = 0;
+	nominal   = .2;
+	gain      = 1.0;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+/*
+gene promoter = 
+{
+	locus = { "gender", "female" };
+};*/
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "arousal potential";
+	sampleRate= 3;
+	gain      = 0.06;
+	threshold = .5;
+	digital   = true;
+};
+
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "testosterone";
+	sampleRate= 4;
+	gain      = 0.02;
+	threshold = .5;
+	invert    = true;
+	digital   = true;
+};
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene emitter =
+{
+	//locus     = { it is opposite sex };
+	locus     = { "creature", "always on" };
+	chemical  = "opposite sex pheromone";
+	sampleRate= 3;
+	gain      = 0.055;
+	threshold = 0;
+	//invert    = true;
+	digital   = true;
+};
+/*
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene emitter =
+{
+	locus     = { "reproductive", "i am fertile" };
+	chemical  = "libido lowerer";
+	sampleRate= 3;
+	gain      = 0.051;
+	threshold = .502;
+	digital   = true;
+	invert    = true;
+};*/
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene reaction = 
+{
+	reactants = { 1 "libido lowerer",  1 "sex drive" };
+	products = { 1 "libido lowerer" };
+	rate = 50 ms;
+};
+
+gene reaction = 
+{
+	reactants = { 1 "arousal potential", 1 "libido lowerer" };
+	rate = 486.7 ms;
+};
+/*
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene promoter = 
+{
+	locus		= { "chemical", "arousal potential" };
+	threshold 	= .012;
+	nominal		= .894;
+	gain   		= .31;
+	invert 		= true;
+	digital		= true;
+};
+gene reaction = 
+{
+	reactants = { 1 "sex drive" };
+	rate = 486.7 ms;
+};*/
+
+gene promoter = 
+{
+	locus = {"life stage", "youth"};
+};
+gene reaction = 
+{
+	reactants = { 1 "libido lowerer", 1 "arousal potential" };
+	products = { 1 "libido lowerer" };
+	rate = 296.8 ms;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation chance" };
+	chemical  = "stress";
+	threshold = .247;
+	nominal   = 0;
+	gain      = .149;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation degree" };
+	chemical  = "stress";
+	threshold = .251;
+	nominal   = 0;
+	gain      = .212;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation chance" };
+	chemical  = "heavy metals";
+	threshold = .5;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor = 
+{
+	locus     = { "reproductive", "mutation degree" };
+	chemical  = "heavy metals";
+	threshold = .08;
+	nominal   = 0;
+	gain      = 1.0;
+};
+
+gene receptor = 
+{
+	locus     = { "organ", "injury" };
+	chemical  = "heavy metals";
+	threshold = 0;
+	nominal   = 0;
+	gain      = .098;
+};
+
+gene receptor = 
+{
+	chemical  = "Prostaglandin";
+	locus     = { "organ", "Repair Rate" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .584;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 3";
+	locus = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .231;
+};
+
+gene receptor = 
+{
+	chemical  = "Antigen 2";
+	locus     = { "organ", "injury" };
+	threshold = 0;
+	nominal   = 0;
+	gain      = .216;
+};
+};
+
+chromosome "D" 
+{
+
+gene stimulus = //"Disappoint"
+{
+	stimulus     = { "Miscellaneous", "failed" };
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .008 "boredom", .202 "punishment", .5 "Disappointment" };
+};
+
+gene stimulus = //"creature slaps me"
+{
+	stimulus     = { "DoneToMe", "hit", "creature" };
+	//significance = .455;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .016 "anger", .048 "fear", .024 "pain", .024 "wounded" };
+};
+
+
+gene stimulus = // "pointer slaps me"
+{
+	stimulus     =  { "DoneToMe", "hit", "pointer" };
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .032 "wounded", .032 "fear", .024 "pain", .702 "punishment" };
+};
+
+
+gene stimulus = // "i hit someone"
+{
+	stimulus     = { "Action", "hit", "creature"};
+	//significance = .251;
+	//reaction     = "hit it";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.081 "anger", -.016 "crowded", -.016 "tiredness", -.04 "boredom" };
+};
+
+
+gene stimulus = // "pointer pats me"
+{
+	stimulus     = { "DoneToMe", "push", "pointer" };
+	//significance = 0;
+	//reaction     = "approach it";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.056 "anger", -.048 "fear", -.032 "loneliness", .702 "reward" };
+};
+
+gene stimulus = // "creature pats me"
+{
+	stimulus     = { "DoneToMe", "push", "creature" };
+	//significance = .78;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.048 "anger", .032 "crowded", -.056 "loneliness", -.048 "fear" };
+};
+
+
+gene stimulus = // "i've deactivated"
+{
+	stimulus     = { "Action", "deactivated", "any" };
+	//significance = .059;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.04 "boredom", .016 "hunger for carb", .008 "hunger for fat", .008 "Hunger for protein" };
+};
+
+gene stimulus = // "i am quiescent"
+{
+	stimulus     = { "Action", "waiting", "any" };
+	//significance = .165;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .04 "boredom", .008 "hunger for carb", -.048 "pain", .016 "coldness" };
+};
+
+gene stimulus = // "slept"
+{
+	stimulus     =  { "Action", "sleep", "any" };
+	//significance = .145;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = true;
+	
+	response     = { -.032 "tiredness", -.032 "sleepiness", -.008 "boredom", -.403 "sleepase" };
+};
+
+gene stimulus = // "resting"
+{
+	stimulus     = { "unallocated32", 1 };
+	//significance = .455;
+	//reaction     = "rest";
+	//intensity    = .306;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .008 "boredom", .008 "hunger for carb", .024 "sleepiness", -.048 "tiredness" };
+};
+
+gene stimulus = // "i am sleeping"
+{
+	stimulus     = { "Miscellaneous", "sleeping" };
+	//significance = .294;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = true;
+	
+	response     = { -.08 "sleepiness", -.016 "crowded", -.08 "tiredness", .016 "boredom" };
+};
+
+
+gene stimulus =  // "i have got" 
+{
+	stimulus     = {"Action", "get", "any"};
+	//significance = .78;
+	//reaction     = "activate 1 it";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.081 "boredom", .024 "tiredness", .008 "hotness", .016 "Hunger for protein" };
+};
+
+
+gene stimulus = // "i've activated 1"
+{
+	stimulus     = {"Action", "push", "any"};
+	//significance = .216;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.032 "boredom", -.016 "coldness", .032 "tiredness", .016 "hunger for protein" };
+};
+
+gene stimulus = // "it approaches"
+{
+	stimulus     = {"DoneToMe", "approach", "any"};
+	//significance = .02;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.056 "boredom", -.056 "loneliness", .032 "crowded" };
+};
+
+gene stimulus = // "i am traveling (periodic)" 
+{
+	stimulus     = {"navigation", "traveling"};
+	//significance = .102;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.016 "boredom", .016 "tiredness", .008 "coldness", .008 "hunger for carb" };
+};
+
+
+gene stimulus = // "i've eaten something"
+{
+	stimulus     = {"Action", "eat", "any"};
+	//significance = .239;
+	//reaction     = "eat it";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .056 "boredom", -.016 "hunger for carb", .024 "tiredness" };
+};
+
+
+gene stimulus = // "i am approaching"
+{
+	stimulus     = {"Action", "approach", "any"};
+	//significance = .114;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .00 "boredom", .008 "crowded", -.008 "loneliness", .008 "hunger for carb" };
+};
+
+
+gene stimulus = // "heard creature speak"
+{
+	stimulus     = {"DoneToMe", "what", "creature" };
+	//significance = 0;
+	//reaction     = "approach it";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .008 "crowded", -.08 "loneliness", -.089 "fear", -.04 "anger" };
+};
+
+
+gene stimulus = // "i have retreated"
+{
+	stimulus     = {"Action", "retreat", "any"};
+	//significance = .051;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.089 "crowded", .016 "loneliness", -.056 "fear" };
+};
+
+
+gene stimulus = // "it retreats"
+{
+	stimulus     = {"DoneToMe", "retreat", "any"};
+	//significance = .12;
+	//reaction     = "N/A";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.065 "crowded", .008 "loneliness", -.074 "fear" };
+};
+
+
+gene stimulus = // "bump"
+{
+	stimulus     = {"navigation", "bump"};
+	//significance = .024;
+	//reaction     = "retreat from it";
+	//intensity    = 1.0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .097 "pain", .073 "fear", .008 "wounded" };
+	
+};
+
+
+gene stimulus = // "i have dropped"
+{
+	stimulus     = {"Action", "drop", "any"};
+	//significance = .02;
+	//reaction     = "get it";
+	//intensity    = 0.1;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .024 "boredom", -.024 "hunger for carb", .008 "hunger for protein" };
+};
+
+
+//@switch_on_stage(Youth)
+gene stimulus = // "lay egg" 
+{
+	stimulus     = {"somatic", "layed egg"};
+	//significance = .02;
+	//reaction     = rest;
+	//intensity    = .133;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .073 "pain", .185 "sleepiness", -.105 "progesterone", -1.0 "comfort" };
+};
+
+gene stimulus = //"sneeze"
+{
+	stimulus     = {"somatic", "sneezed"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = true;
+	
+	response     = { .016 "pain", .016 "tiredness", .016 "hotness" };
+};
+
+gene stimulus = //"cough" 
+{
+	stimulus     = {"somatic", "pushed"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = true;
+	
+	response     = { .016 "pain", .008 "tiredness" };
+};
+
+gene stimulus = //"shiver" 
+{
+	stimulus     = {"somatic", "shiver"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .056 "hotness", .008 "tiredness", -.1 "coldness" };
+};
+
+gene stimulus = //"sleep"
+{
+	stimulus     = {"Miscellaneous", "dreaming"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = true;
+	
+	response     = { -.032 "tiredness", -.032 "sleepiness", .004 "boredom", .395 "sleepase" };
+};
+
+gene stimulus = // "impact post fall"
+{
+	stimulus     =  {"navigation", "impact"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .137 "pain", .081 "fear", .04 "wounded" };
+};
+
+//@switch_on_stage(Youth)
+gene stimulus = //"i've mated"
+{
+	stimulus     = {"Miscellaneous", "mated"};
+	//significance = 0;
+	//reaction     = "rest";
+	//intensity    = .118;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.403 "sex drive", .05 "libido lowerer", -.065 "loneliness", .056 "tiredness" };
+};
+
+gene stimulus = // "tickled by opp sex"
+{
+	stimulus     = {"feedback", "reward", "opposite sex"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .298 "arousal potential", -.04 "loneliness", -.081 "crowded" };
+};
+
+
+//before promoter genes!
+//@switch_on_stage(Child)
+gene stimulus = // "need to go up"
+{
+	stimulus     = {"navigation", "go up"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { 1.0 "up drive" };
+};
+
+//@switch_on_stage(Child)
+gene stimulus = // "need to go down"
+{
+	stimulus     =  {"navigation", "go down"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { 1.0 "down drive" };
+};
+
+
+//@switch_on_stage(Child)
+gene stimulus = // "need to exit"
+{
+	stimulus     =  {"navigation", "go out"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { 1.0 "exit drive" };
+};
+
+
+//@switch_on_stage(Child)
+gene stimulus = // "need to enter"
+{
+	stimulus     =  {"navigation", "go in"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { 1.0 "Enter Drive" };
+};
+
+
+//@switch_on_stage(Child)
+gene stimulus = // "patience"
+{
+	stimulus     =  { "Miscellaneous", "patience" };
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { 1.0 "wait" };
+};
+
+gene stimulus = // "activate button"
+{
+	stimulus     = {"Action", "push", "button"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = .427;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.032 "boredom" };
+};
+
+gene stimulus = // "eaten plant"
+{
+	stimulus     = {"Action", "eat", "plant"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.25 "hunger for carb", -.153 "hunger for fat", .105 "starch", .056 "fat" };
+};
+
+
+gene stimulus = // "eaten fruit"
+{
+	stimulus     =  {"Action", "eat", "fruit"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.202 "hunger for protein", -.202 "hunger for carb", .105 "protein", .097 "starch" };
+};
+
+
+gene stimulus = // "eaten food"
+{
+	stimulus     =  {"Action", "eat", "food"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.298 "hunger for fat", -.169 "hunger for protein", .097 "fat", .097 "protein" };
+};
+
+
+gene stimulus = // "eaten animal"
+{
+	stimulus     = {"Action", "eat", "animal"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.105 "hunger for protein", -.056 "hunger for fat", .097 "protein", .056 "fat" };
+};
+
+
+gene stimulus = // "eaten detritus"
+{
+	stimulus     = {"Action", "eat", "detritus"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .105 "pain", .202 "glycotoxin" };
+};
+
+gene stimulus = // "consume alcohol"
+{
+	stimulus     = {"unallocated32", 0};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.105 "pain", -.105 "boredom", .105 "alcohol" };
+};
+
+
+gene stimulus = // "interacted with badplant"
+{
+	stimulus     =  {"Action", "push", "weed"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .306 "pain", .056 "injury" };
+};
+
+gene stimulus = // "interacted with goodplant"
+{
+	stimulus     = {"Action", "push", "plant"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.01 "loneliness" };
+};
+
+gene stimulus = // "played with bug"
+{
+	stimulus     =  {"Action", "push", "bug"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.202 "boredom", -.105 "loneliness" };
+};
+
+
+gene stimulus = // "played with critter"
+{
+	stimulus     =  {"Action", "push", "critter"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.202 "anger", -.202 "loneliness" };
+};
+
+
+gene stimulus = // "played with bad animal"
+{
+	stimulus     = {"Action", "push", "beast"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .202 "pain", .097 "fear" };
+};
+
+
+gene stimulus = // "activate machinery"
+{
+	stimulus     = {"Action", "push", "machine"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.097 "boredom", .016 "hunger for fat" };
+};
+
+
+gene stimulus = // "got machine" 
+{
+	stimulus     =  {"Action", "get", "machine"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.097 "boredom", .016 "hunger for fat" };
+};
+
+
+gene stimulus = // "got egg"
+{
+	stimulus     = {"Action", "get", "egg"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.097 "boredom" };
+};
+
+
+gene stimulus = // "been hit"
+{
+	stimulus     = {"DoneToMe", "hit", "any"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { .024 "pain", .016 "fear", .032 "wounded" };
+};
+
+gene stimulus = // "traveled in lift"
+{
+	stimulus     = {"navigation", "took lift"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -1 "up drive", -1 "down drive", -1 "wait" };
+};
+
+
+gene stimulus = // "i'm home"
+{
+//home smell will probably be removed
+	stimulus     = {"smellPeak", "home"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -1 "comfort", .04 "boredom" };
+};
+
+gene stimulus = // "went through meta-door"
+{
+	stimulus     = {"navigation", "interroom door"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -1 "exit drive", -1 "wait" };
+};
+
+
+gene stimulus = // "went through internal door"
+{
+	stimulus     = {"navigation", "intraroom door"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -1 "Enter Drive" };
+};
+
+
+gene stimulus = // "found company"
+{
+//hmmm
+	stimulus     = {"Miscellaneous", "creature came into vew"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.202 "loneliness", -.048 "boredom" };
+};
+
+
+gene stimulus = // "stated need" 
+{
+	stimulus     = {"Action", "what", "any"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.048 "anger", -.016 "crowded" };
+};
+
+
+gene stimulus = // "played wtih toy"
+{
+	stimulus     = {"Action", "push", "toy"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -.202 "boredom" };
+};
+
+
+gene stimulus = // "i have teleported"
+{
+	stimulus     = {"navigation", "teleported"};
+	//significance = 0;
+	//reaction     = "default";
+	//intensity    = 0;
+	//modulate     = false;
+	//detected     = false;
+	
+	response     = { -1 "pain", -1 "boredom", -1 "crowded" };
+};
+
+};
+// */
+
+chromosome "B" {
+	
+	
+
+//sensory
+gene lobe =
+{
+	id   = 4; //vision
+	size = {8, 5};
+	color = {0.0, 1.0, 0.0};
+};
+
+
+
+//sensory
+gene lobe =
+{
+	id = 10; //move
+	position = {9, 0};
+	size = {8, 5};
+	color = {0.5, 0.5, 1.0};
+	
+	inputGain   = .9355;
+	leakage = .5 sec;
+};
+
+gene tract =
+{
+	dataSource = 4; //vision
+	delta = 1.0;
+};
+
+//sensory
+gene lobe =
+{
+	id = 11; //object
+	
+	position = {0, 6};
+	size = {8, 5};
+	color = {0.0, 1.0, 1.0};
+};
+
+gene tract = 
+{
+	dataSource = 4; //vision
+	
+	nominal =  1.0;
+	gain    = -1.0;
+};
+
+//sensory
+gene lobe =
+{
+	id = 12;
+	position = {9, 6};
+	size = {8, 5};
+	color = {1.0, 1.0, 0.0};
+};
+
+gene tract =
+{
+	dataSource = 10; //move
+};
+
+gene tract =
+{
+	dataSource = 11; //object
+};
+
+
+gene lobe =
+{
+	id = 6;
+	position = {20, 0};
+	size = {20, 1};
+	color = {1.0, 0.1, 0.1};
+};
+
+gene  lobe =
+{
+	id = 15;
+	position = {20, 4};
+	size = {16, 20};
+	color = {1.0, 1.0, 1.0};
+};
+
+gene dendrite =
+{
+	dataSource = 6;
+	neurotransmitter = 2;
+	anded            = 1.0;
+	denLimit         = 255;
+	minDens          = 1;
+	maxDens          = 3;
+	relaxStw         = MIN;
+	relaxLtw         = MIN;
+	relaxSuscept     = MIN;
+	gainRate         = 128;
+	lossRate         = 128;
+
+};
+
+
+gene dendrite =
+{
+	dataSource = 12;
+	neurotransmitter = 2;
+	anded            = 1.0;
+	denLimit         = 255;
+	minDens          = 1;
+	maxDens          = 3;
+	relaxStw         = MIN;
+	relaxLtw         = MIN;
+	relaxSuscept     = MIN;
+	gainRate         = 128;
+	lossRate         = 128;
+
+};
+
+/*
+gene dendrite =
+{
+	dataSource = 0;
+	neurotransmitter = 2;
+	anded            = 1.0;
+	denLimit         = 255;
+	minDens          = 1;
+	maxDens          = 3;
+	relaxStw         = MIN;
+	relaxLtw         = MIN;
+	relaxSuscept     = MIN;
+	gainRate         = 128;
+	lossRate         = 128;
+
+};*/
+
+gene lobe = 
+{
+	id = 0;
+	position = {9, 12};
+	size = {8, 5};
+	color = {1.0, 0.5, 1.0};
+	threshold = 0.0;
+	inputGain = 1.0;
+	leakAP = MIN; // (about 3 seconds)
+	leakage = 1 sec; // (about 3 seconds)
+	restState   = .5;
+	restAP      = 0.0;
+	inhibition = 1.0;
+};
+
+gene tract =
+{
+	dataSource = 12; //sensory
+	nominal = 0.0;
+	gain    = 1.0;
+	neurotransmitter = 1;
+};
+
+gene dendrite =
+{
+	dataSource = 15; //concept
+	neurotransmitter = 2; //excitory
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 64;
+	maxDens          = 128;
+	relaxStw         = 10 sec;
+	relaxLtw         = 100 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+gene dendrite =
+{
+	dataSource = 15; //concept
+	neurotransmitter = 0; //inhibitory
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 64;
+	maxDens          = 128;
+	relaxStw         = 20 sec;
+	relaxLtw         = 240 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+gene lobe =
+{
+	id       = 1;
+	position = {42, 16};
+	size = {1, 13};
+	color = {1.0, 0.5, 1.0};
+	threshold = 0.0;
+	inputGain = 1.0;
+	leakAP = MIN; // (about 3 seconds)
+	leakage = 1 sec; // (about 3 seconds)
+	restState   = .5;
+	inhibition = 1.0;
+};
+
+
+gene dendrite =
+{
+	dataSource = 15; //concept
+	neurotransmitter = 2;
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 128;
+	maxDens          = 128;
+	relaxStw         = 20 sec;
+	relaxLtw         = 120 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+gene dendrite =
+{
+	dataSource = 15; //concept
+	neurotransmitter = 0; //inhibitory
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 128;
+	maxDens          = 128;
+	relaxStw         = 20 sec;
+	relaxLtw         = 120 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+gene dendrite =
+{
+	dataSource = 0; //attention
+	neurotransmitter = 2; //excitory
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 128;
+	maxDens          = 128;
+	relaxStw         = 20 sec;
+	relaxLtw         = 120 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+gene dendrite =
+{
+	dataSource = 0; //attention
+	neurotransmitter = 0;
+	anded            = 0.0;
+	denLimit         = 255;
+	minDens          = 128;
+	maxDens          = 128;
+	relaxStw         = 20 sec;
+	relaxLtw         = 120 sec;
+	relaxSuscept     = 5 sec;
+	gainRate         = 128;
+	lossRate         = 128;
+};
+
+};
